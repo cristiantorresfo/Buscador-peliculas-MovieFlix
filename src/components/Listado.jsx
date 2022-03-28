@@ -2,8 +2,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import swAlert from '@sweetalert/with-react'
+import  "../css/App.css"
 
-function Listado() {
+function Listado({addOrRemoveFromFavs}) {
   const [moviesList, setMoviesList] = useState([]);
 
   let token = sessionStorage.getItem("token");
@@ -29,6 +30,7 @@ function Listado() {
             <div className="col-3" key={idx}>
               <div className="card">
                 <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} className="card-img-top" alt="..." />
+                <button onClick={addOrRemoveFromFavs} data-movie-id={movie.id} className="favorite-btn">🖤</button>
                 <div className="card-body">
                   <h5 className="card-title">{movie.title.substring(0,30)}...</h5>
                   <p className="card-text">

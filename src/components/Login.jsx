@@ -44,7 +44,7 @@ let token = sessionStorage.getItem("token")
     <>
       {token && <Navigate replace to="listado" />}
       <h2>Formulario de Login</h2>
-      <form className='col-4' onSubmit={submitHandler}>
+      <form className='col-4' onSubmit={submitHandler} style={{minHeight:"100vh"}} >
         <label className='form-label d-block mt-2'>
           <span>Correo electrónico:</span> <br />
           <input className='form-control' type="email" name="email" />
